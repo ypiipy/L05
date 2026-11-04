@@ -51,7 +51,6 @@ const MyApp = () => {
         </View>
     );
 };
-};
 
 
-export default App;
+export default MyApp;
