@@ -1,6 +1,12 @@
-import React, {useState} from 'react';
-import { View, Text, TextInput, Button, Alert, TouchableOpacity, ToastAndroid } from 'react-native';
-import {Picker} from '@react-native-picker/picker';
+import React, { useState } from 'react';
+import {
+    View,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    ToastAndroid,
+} from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 
 const InputBox = ({ label, onChangeText }) => {
     return (
@@ -39,18 +45,21 @@ const MyApp = () => {
             />
 
             <TouchableOpacity
-                onPress={() =>
-                    ToastAndroid.show(
-                        'Welcome ' + type + ' ' + name,
-                        ToastAndroid.SHORT
-                    )
-                }
+                onPress={() => {
+                    const correctPassword = '123';
+                    let mymessage = 'Error! Wrong Password!';
+
+                    if (pw == correctPassword) {
+                        mymessage = 'Welcome ' + type + ' ' + name;
+                    }
+
+                    ToastAndroid.show(mymessage, ToastAndroid.SHORT);
+                }}
             >
                 <Text>LOG IN</Text>
             </TouchableOpacity>
         </View>
     );
 };
-
 
 export default MyApp;
